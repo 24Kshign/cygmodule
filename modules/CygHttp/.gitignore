@@ -1,1 +1,7 @@
 /build
+*.iml
+*.apk
+*.log
+.DS_Store
+CygHttp/build/
+CygHttp.iml
