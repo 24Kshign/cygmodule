@@ -1,0 +1,7 @@
+/build
+*.iml
+*.apk
+*.log
+.DS_Store
+GreenDao/build/
+GreenDao.iml
