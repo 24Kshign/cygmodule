@@ -58,15 +58,7 @@ public abstract class BaseRetrofit {
 //                .repeatWhen(new Function<Observable<Object>, ObservableSource<?>>() {
 //                    @Override
 //                    public ObservableSource<?> apply(@NonNull Observable<Object> objectObservable) throws Exception {
-//                        return objectObservable.flatMap(new Function<Object, ObservableSource<?>>() {
-//                            @Override
-//                            public ObservableSource<?> apply(@NonNull Object o) throws Exception {
-//                                if (o instanceof IOException) {
-//                                    return Observable.error(new Throwable("retryWhen终止啦"));
-//                                }
-//                                return null;
-//                            }
-//                        });
+//                        return null;
 //                    }
 //                })
                 .subscribe(observer);   //订阅

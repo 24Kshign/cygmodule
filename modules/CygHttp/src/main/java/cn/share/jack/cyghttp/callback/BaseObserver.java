@@ -31,7 +31,7 @@ public abstract class BaseObserver<T> implements Observer<T> {
         mBaseImpl = baseImpl;
         if (null != mBaseImpl) {
             if (null == mProgressDialogHandler) {
-                mProgressDialogHandler = new ProgressDialogHandler(baseImpl.getActivity(), true);
+                mProgressDialogHandler = new ProgressDialogHandler(baseImpl.getContext(), true);
             }
         }
     }

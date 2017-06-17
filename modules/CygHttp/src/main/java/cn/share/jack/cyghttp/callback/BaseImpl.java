@@ -1,6 +1,6 @@
 package cn.share.jack.cyghttp.callback;
 
-import android.app.Activity;
+import android.content.Context;
 
 import io.reactivex.disposables.Disposable;
 
@@ -12,6 +12,6 @@ public interface BaseImpl {
 
     boolean addDisposable(Disposable disposable);
 
-    Activity getActivity();
+    Context getContext();
 
 }

@@ -1,7 +1,7 @@
 package cn.share.jack.cyghttp.progress;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.Message;
@@ -18,18 +18,18 @@ public class ProgressDialogHandler extends Handler {
 
     private ProgressDialog pd;
 
-    private Activity activity;
+    private Context context;
     private boolean cancelable;
 
-    public ProgressDialogHandler(Activity activity,boolean cancelable) {
+    public ProgressDialogHandler(Context context, boolean cancelable) {
         super();
-        this.activity = activity;
+        this.context = context;
         this.cancelable = cancelable;
     }
 
     private void initProgressDialog(String title) {
         if (pd == null) {
-            pd = new ProgressDialog(activity);
+            pd = new ProgressDialog(context);
             if (TextUtils.isEmpty(title)) {
                 title = "加载中,请稍后....";
             }
