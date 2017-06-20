@@ -27,7 +27,6 @@ public abstract class BaseRetrofit {
     private final long RETRY_TIMES = 1;   //重订阅次数
 
     public BaseRetrofit() {
-        super();
         //创建okHttpClient
         if (null == mRetrofit) {
             OkHttpClient.Builder builder = new OkHttpClient().newBuilder();
