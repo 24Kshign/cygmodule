@@ -4,6 +4,7 @@ package cn.share.jack.cyghttp.callback;
 import android.util.Log;
 
 import cn.share.jack.cyghttp.progress.ProgressDialogHandler;
+import cn.share.jack.cyghttp.util.Platform;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -26,6 +27,7 @@ public abstract class BaseObserver<T> implements Observer<T> {
 
     private ProgressDialogHandler mProgressDialogHandler;
     private BaseImpl mBaseImpl;
+    private Platform mPlatform;
 
     public BaseObserver(BaseImpl baseImpl) {
         mBaseImpl = baseImpl;
@@ -34,6 +36,7 @@ public abstract class BaseObserver<T> implements Observer<T> {
                 mProgressDialogHandler = new ProgressDialogHandler(baseImpl.getContext(), true);
             }
         }
+        mPlatform = Platform.get();
     }
 
     private void showProgressDialog() {
@@ -63,22 +66,32 @@ public abstract class BaseObserver<T> implements Observer<T> {
     }
 
     @Override
-    public void onNext(T value) {
+    public void onNext(final T value) {
         //成功
         Log.d(TAG, "http is onNext");
         if (null != value) {
-            onBaseNext(value);
+            mPlatform.execute(new Runnable() {
+                @Override
+                public void run() {
+                    onBaseNext(value);
+                }
+            });
         }
     }
 
     @Override
-    public void onError(Throwable e) {
+    public void onError(final Throwable e) {
         //关闭进度条
         Log.e(TAG, "http is onError");
         if (isNeedProgressDialog()) {
             dismissProgressDialog();
         }
-        onBaseError(e);
+        mPlatform.execute(new Runnable() {
+            @Override
+            public void run() {
+                onBaseError(e);
+            }
+        });
     }
 
     @Override

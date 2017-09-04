@@ -21,6 +21,22 @@ public class BaseGreenDao<T> {
         }
     }
 
+    protected static <T> T getPresent(Class<T> cls) {
+        T instance = null;
+        try {
+            instance = cls.newInstance();
+            if (instance == null) {
+                return null;
+            }
+            return instance;
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 ///////////////////////////////////////////////数据库操作/////////////////////////////////////
 

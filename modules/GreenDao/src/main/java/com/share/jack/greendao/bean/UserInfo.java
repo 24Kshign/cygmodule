@@ -29,6 +29,11 @@ public class UserInfo {
         this.token = token;
     }
 
+    public UserInfo(String username, String token) {
+        this.username = username;
+        this.token = token;
+    }
+
     @Generated(hash = 1279772520)
     public UserInfo() {
     }
