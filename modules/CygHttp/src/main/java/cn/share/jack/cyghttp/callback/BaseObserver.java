@@ -29,7 +29,7 @@ public abstract class BaseObserver<T> implements Observer<T> {
     private BaseImpl mBaseImpl;
     private Platform mPlatform;
 
-    public BaseObserver(BaseImpl baseImpl) {
+    BaseObserver(BaseImpl baseImpl) {
         mBaseImpl = baseImpl;
         if (null != mBaseImpl) {
             if (null == mProgressDialogHandler) {

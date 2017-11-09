@@ -11,9 +11,9 @@ import cn.share.jack.cyghttp.app.CygApplication;
 /**
  * 对Toast封装
  */
-public final class FRToast {
+public final class CygToast {
 
-    private FRToast() {
+    private CygToast() {
 
     }
 

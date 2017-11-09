@@ -17,7 +17,7 @@ import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
 
 import cn.share.jack.cyghttp.ApiException;
-import cn.share.jack.cyghttp.util.FRToast;
+import cn.share.jack.cyghttp.util.CygToast;
 
 /**
  * 对请求失败的分类操作
@@ -59,7 +59,7 @@ public abstract class CygBaseObserver<T> extends BaseObserver<T> {
 
     @Override
     protected void onBaseError(Throwable t) {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         sb.append("请求失败：");
         if (t instanceof NetworkErrorException || t instanceof UnknownHostException || t instanceof ConnectException) {
             sb.append("网络异常");
@@ -76,10 +76,10 @@ public abstract class CygBaseObserver<T> extends BaseObserver<T> {
                 sb.append("Token出错");
             }
         } else {
-            FRToast.showToastSafe(t.getMessage());
+            CygToast.showToastSafe(t.getMessage());
             return;
         }
         Log.e(TAG, "onBaseError: " + sb.toString());
-        FRToast.showToastSafe(sb.toString());
+        CygToast.showToastSafe(sb.toString());
     }
 }

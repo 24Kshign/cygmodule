@@ -3,7 +3,6 @@ apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion gradle.ext.compileSdkVersion
-    buildToolsVersion gradle.ext.buildToolsVersion
 
     defaultConfig {
         minSdkVersion gradle.ext.minSdkVersion
@@ -25,6 +24,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'org.greenrobot:greendao:3.2.0'
+    compile 'org.greenrobot:greendao:3.2.2'
     compile project(':CygHttp')
 }
