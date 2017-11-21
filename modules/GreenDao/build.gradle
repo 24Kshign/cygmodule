@@ -3,6 +3,7 @@ apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion gradle.ext.compileSdkVersion
+    buildToolsVersion gradle.ext.buildToolsVersion
 
     defaultConfig {
         minSdkVersion gradle.ext.minSdkVersion
